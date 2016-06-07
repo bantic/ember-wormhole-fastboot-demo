@@ -1,41 +1,52 @@
 <div class='wormhole-source'>{{#ember-wormhole to='wormhole1'}}EW: WH 1{{/ember-wormhole}}</div>
 <div class='wormhole-source'>{{#ember-wormhole to='wormhole2'}}EW: WH 2{{/ember-wormhole}}</div>
 <div class='wormhole-source'>{{#ember-wormhole to=wormhole5Target}}EW: WH 5{{/ember-wormhole}}</div>
-<div class='wormhole-source'>{{#ember-wormhole to='wormhole6'}}Dynamic value: {{name}}{{/ember-wormhole}}</div>
+<div class='wormhole-source'>{{#ember-wormhole to='wormhole6'}}EW: WH 6. Dynamic value: {{name}}{{/ember-wormhole}}</div>
+{{#if showWormhole3}}
+  <div class='wormhole-source'>{{#ember-wormhole to='wormhole3'}}EW: WH 3{{/ember-wormhole}}</div>
+{{/if}}
 
-<h1>WORMHOLE TEST</h1>
+<h1>ember-wormhole Fastboot demo</h1>
+
+<p>
+See <a href='https://github.com/yapplabs/ember-wormhole/pull/54'>ember-wormhole PR#54</a>.
+This demo app is running on fastboot using the fastboot-compatible branch of ember-wormhole
+from that PR. The ember app will have taken over by the time you read this, but to ensure
+that Fastboot rendered the wormhole'd elements correctly, view the source of this page
+and confirm that all of the divs of class "wormhole-source" are empty.
+</p>
+
+<p>
+The source code for this ember app is on github at <a href='https://github.com/bantic/ember-wormhole-fastboot-demo'>bantic/ember-wormhole-fastboot-demo</a>.
+</p>
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-  WORMHOLE 1
+  WORMHOLE Container 1:
   <div id='wormhole1'>(With content already in it)</div>
 </div>
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-  WORMHOLE 2:
+  WORMHOLE Container 2:
   <div id='wormhole2'></div>
 </div>
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   <button {{action 'toggleWormhole3'}}>Toggle WH 3</button>
 
-  WORMHOLE 3 (initially hidden)<br>
+  WORMHOLE Container 3 (initially hidden):<br>
   <div id='wormhole3'></div>
 </div>
-
-{{#if showWormhole3}}
-  <div class='wormhole-source'>{{#ember-wormhole to='wormhole3'}}EW: WH 3{{/ember-wormhole}}</div>
-{{/if}}
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   <button {{action 'toggleWormhole4'}}>Toggle WH 4</button>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 4 in-place:
+    WORMHOLE Container 4 (rendered in-place):
     {{#ember-wormhole renderInPlace=renderWormhole4InPlace to='wormhole4'}}EW: WH 4{{/ember-wormhole}}
   </div>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 4 out-of-place:
+    WORMHOLE Container 4 (rendered out-of-place):
     <div id='wormhole4'></div>
   </div>
 </div>
@@ -47,12 +58,12 @@
   <button {{action 'targetWormhole5' 'b'}}>Target 5B</button>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 5A
+    WORMHOLE Container 5A:
     <div id='wormhole5a'></div>
   </div>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 5B
+    WORMHOLE Container 5B:
     <div id='wormhole5b'></div>
   </div>
 </div>
@@ -61,7 +72,7 @@
   Type here: {{input value=name placeholder="enter a value"}}
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    LIVE WORMHOLE 6<br>
+    LIVE WORMHOLE Container 6:
     <div id='wormhole6'></div>
   </div>
 </div>
