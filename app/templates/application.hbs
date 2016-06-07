@@ -1,7 +1,13 @@
+<div class='wormhole-source'>{{#ember-wormhole to='wormhole1'}}EW: WH 1{{/ember-wormhole}}</div>
+<div class='wormhole-source'>{{#ember-wormhole to='wormhole2'}}EW: WH 2{{/ember-wormhole}}</div>
+<div class='wormhole-source'>{{#ember-wormhole to=wormhole5Target}}EW: WH 5{{/ember-wormhole}}</div>
+<div class='wormhole-source'>{{#ember-wormhole to='wormhole6'}}Dynamic value: {{name}}{{/ember-wormhole}}</div>
+
 <h1>WORMHOLE TEST</h1>
 
-<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em' id='wormhole1'>
-  <span>WORMHOLE 1 (with stuff in it)</span>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
+  WORMHOLE 1
+  <div id='wormhole1'>(With content already in it)</div>
 </div>
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
@@ -10,47 +16,30 @@
 </div>
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    <button {{action 'toggleWormhole3'}}>Toggle WH 3</button>
-  </div>
+  <button {{action 'toggleWormhole3'}}>Toggle WH 3</button>
 
-  WORMHOLE 3 (initially empty)<br>
+  WORMHOLE 3 (initially hidden)<br>
   <div id='wormhole3'></div>
 </div>
 
-{{#ember-wormhole to='wormhole1'}}
-  EW: WH 1
-{{/ember-wormhole}}
-
-{{#ember-wormhole to='wormhole2'}}
-  EW: WH 2
-{{/ember-wormhole}}
-
 {{#if showWormhole3}}
-  {{#ember-wormhole to='wormhole3'}}
-    EW: WH 3
-  {{/ember-wormhole}}
+  <div class='wormhole-source'>{{#ember-wormhole to='wormhole3'}}EW: WH 3{{/ember-wormhole}}</div>
 {{/if}}
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   <button {{action 'toggleWormhole4'}}>Toggle WH 4</button>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 4 in-place<br>
-    {{#ember-wormhole renderInPlace=renderWormhole4InPlace to='wormhole4'}}
-      EW: WH 4
-    {{/ember-wormhole}}
+    WORMHOLE 4 in-place:
+    {{#ember-wormhole renderInPlace=renderWormhole4InPlace to='wormhole4'}}EW: WH 4{{/ember-wormhole}}
   </div>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 4 out-of-place<br>
+    WORMHOLE 4 out-of-place:
     <div id='wormhole4'></div>
   </div>
 </div>
 
-{{#ember-wormhole to=wormhole5Target}}
-  EW: WH 5
-{{/ember-wormhole}}
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   Wormhole 5 target: {{wormhole5Target}}.<br>
@@ -58,20 +47,15 @@
   <button {{action 'targetWormhole5' 'b'}}>Target 5B</button>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 5A<br>
+    WORMHOLE 5A
     <div id='wormhole5a'></div>
   </div>
 
   <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
-    WORMHOLE 5B<br>
+    WORMHOLE 5B
     <div id='wormhole5b'></div>
   </div>
 </div>
-
-
-{{#ember-wormhole to='wormhole6'}}
-  Dynamic value: {{name}}
-{{/ember-wormhole}}
 
 <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   Type here: {{input value=name placeholder="enter a value"}}
