@@ -1,16 +1,16 @@
-<h1>HI there</h1>
+<h1>WORMHOLE TEST</h1>
 
-<div class='wormhole-container' id='wormhole1'>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em' id='wormhole1'>
   <span>WORMHOLE 1 (with stuff in it)</span>
 </div>
 
-<div class='wormhole-container'>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   WORMHOLE 2:
   <div id='wormhole2'></div>
 </div>
 
-<div class='wormhole-container'>
-  <div class='wormhole-container'>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
+  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
     <button {{action 'toggleWormhole3'}}>Toggle WH 3</button>
   </div>
 
@@ -32,17 +32,17 @@
   {{/ember-wormhole}}
 {{/if}}
 
-<div class='wormhole-container'>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   <button {{action 'toggleWormhole4'}}>Toggle WH 4</button>
 
-  <div class='wormhole-container'>
+  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
     WORMHOLE 4 in-place<br>
     {{#ember-wormhole renderInPlace=renderWormhole4InPlace to='wormhole4'}}
       EW: WH 4
     {{/ember-wormhole}}
   </div>
 
-  <div class='wormhole-container'>
+  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
     WORMHOLE 4 out-of-place<br>
     <div id='wormhole4'></div>
   </div>
@@ -52,17 +52,17 @@
   EW: WH 5
 {{/ember-wormhole}}
 
-<div class='wormhole-container'>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   Wormhole 5 target: {{wormhole5Target}}.<br>
   <button {{action 'targetWormhole5' 'a'}}>Target 5A</button>
   <button {{action 'targetWormhole5' 'b'}}>Target 5B</button>
 
-  <div class='wormhole-container'>
+  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
     WORMHOLE 5A<br>
     <div id='wormhole5a'></div>
   </div>
 
-  <div class='wormhole-container'>
+  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
     WORMHOLE 5B<br>
     <div id='wormhole5b'></div>
   </div>
@@ -73,10 +73,10 @@
   Dynamic value: {{name}}
 {{/ember-wormhole}}
 
-<div class='wormhole-container'>
+<div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
   Type here: {{input value=name placeholder="enter a value"}}
 
-  <div class='wormhole-container'>
+  <div class='wormhole-container' style='border: 1px solid black; margin: 1em; padding: 1em'>
     LIVE WORMHOLE 6<br>
     <div id='wormhole6'></div>
   </div>
